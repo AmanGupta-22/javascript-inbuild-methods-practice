@@ -1,0 +1,218 @@
+//Arrays Inbuild methods
+//push().........................................................
+// function myPush(arr, element) {
+//     arr[arr.length] = element;
+//     return arr.length;
+// }
+
+// let numbers = [1, 2, 3, 4];
+
+// myPush(numbers, 5);
+
+// console.log(numbers);
+
+//pop()...............................................................
+// function myPop(arr)
+// {
+//     let removeElement =arr[arr.length-1];
+//      arr.length=arr.length-1;
+//     return removeElement;
+// }
+// let arr=[11,2,3,4,5];
+// let result=myPop(arr);
+// console.log(arr);
+// console.log(result);
+
+
+
+//unshift()..............................................................
+// function myUnshift(arr,element)
+// {
+//     for(let i=arr.length;i>0;i--)
+//     {
+//         arr[i]=arr[i-1];
+//     }
+//     arr[0]=element;
+// }
+// let arr=[10,20,30];
+// myUnshift(arr,25);
+// console.log(arr);
+
+// shift()................................................................
+// function myshift(arr)
+// {
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         arr[i]=arr[i+1];
+//     }
+//     arr.length-=1;
+// }
+// let arr=[10,20,30];
+// myshift(arr);
+// console.log(arr);        //o/p-20,30
+
+
+// Map().....................................................................
+// let arr=[10,20,30,40];
+// let arr2=[];
+// for(let i=0;i<arr.length;i++)
+//     {
+//         arr2[i]=arr[i]*2;
+//     }
+// console.log(arr); 
+// console.log(arr2);   
+
+
+//filter() method.....................................................................
+// function myfilter(arr,callback)
+// {
+//     let result=[];
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         if(callback(arr[i],i,arr))                       //ye line samaj nhi aaya
+//         {
+//             result[result.length]=arr[i];
+
+//         }
+//     }
+//     return result;
+// }
+//     let arr=[2,5,7,19,34,28];
+//     // let answer=myfilter(arr,function(num){return num%2==0});
+//     let answer=myfilter(arr, (num) => num%2==0);          //using arrow function
+//     console.log(answer);
+    
+// forEach().................................................................
+// function myforEach(arr,callback)
+// {
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         callback(arr[i])
+//     }
+// }
+// let arr=[1,2,3,4,5];
+// myforEach(arr,(num)=>console.log(num+1));
+// myforEach(arr,function(num){console.log(num*5)});
+
+
+//Find().........................................................................
+// function myfind(arr,callback)
+// {
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         if(callback(arr[i]))
+//         {
+//            return arr[i];
+//         }
+//     }
+//     return undefined;   
+// }
+// let arr=[1,2,3,4,5];
+// console.log(myfind(arr,num=>num>2));
+
+// include method.................................................................
+// function myIncludes(arr, present)
+// {
+//     for(var i = 0; i < arr.length; i++)
+//     {
+//         if(arr[i] === present)
+//         {
+//             return true;
+//         }
+//     }
+
+//     return false;
+// }
+// let arr = [5, 10, 15, 20];
+
+// console.log(myIncludes(arr, 15));
+
+
+// reverse() method...........................................................
+// function myReverse(arr)
+// {
+//     let start = 0;
+//     let end = arr.length - 1;
+//     while(start < end)
+//     {
+//         let temp = arr[start];
+//         arr[start] = arr[end];
+//         arr[end] = temp;
+//         start++;
+//         end--;
+//     }
+//     return arr;
+// }
+
+// let arr = [10, 20, 30, 40, 50];
+// console.log(myReverse(arr));
+// console.log(arr); 
+
+
+
+// reduce method................................................................
+// function myreduce(arr,callback,accumulatorInitalvalue)
+// {
+//     let total=accumulatorInitalvalue;
+//     for(let i=0;i<arr.length;i++)
+//     {
+//         total=callback(arr[i],total)
+
+//     }
+//     return total;
+// }
+// let arr=[1,3,4,5,6]
+// let answer= myreduce(arr,(accumulator,value)=>{
+//     return accumulator+value},0);
+// console.log(answer);    
+
+
+// sort method..................................................................
+//outer loop utni baar chaelga jitne no. of elements h
+// function mysort(arr)
+// {
+//     for(let i = 0; i < arr.length; i++)
+//     {
+//         for(let j=0;j<arr.length-1;j++)
+//         {
+//             if(arr[j]>arr[j+1])
+//             {
+//                 let temp=arr[j];
+//                 arr[j]=arr[j+1];
+//                 arr[j+1]=temp;
+//             }
+//         }
+//     }
+//     return arr;
+
+// }
+// let arr=[20,14,72,3,56,66,32];
+// console.log(mysort(arr));
+
+
+//slice() method.......................................................
+// function mySlice(arr, start, end) {
+//   let result = [];
+
+//   for (let i = start; i < end; i++) {
+//     result[result.length] = arr[i];
+//   }
+
+//   return result;
+// }
+// let arr = [7,54,71,90,3,88,25];
+// console.log(mySlice(arr, 1, 4));   //ending index is excluded 
+// console.log(arr);                  // Original array change nahi hota
+
+//splice : delete elements..........................................
+function mysplice(arr,startindex,deletecount)
+{
+    for(let i=startindex;i<arr.length-deletecount;i++)
+    {
+        arr[i]=arr[deletecount+i];
+    }
+    arr.length=arr.length-deletecount;
+}
+let arr=[1,2,3,4,5,6];
+mysplice(arr, 1, 2);
+console.log(arr)
