@@ -1,0 +1,44 @@
+//callback function
+function greet(name)    //greet is the callback function.
+{
+    console.log("Hello " + name);
+}
+function processUser(callback){
+    callback("vinit");
+}
+processUser(greet);
+
+
+function sayhello()
+{
+    console.log("hello");
+}
+function executeTask(callback)
+{
+   callback(); 
+}
+executeTask(sayhello);
+
+
+
+function add(a,b,callback)
+{
+    result =a+b;
+    callback(result);
+}
+function displayanswer(answer)
+{
+    console.log(answer)
+}
+add(5,6,displayanswer);
+
+//promise
+let firstPromise=new Promise((resolve,reject)=>
+{
+    setTimeout(function sayMyname()
+{
+    console.log("my name is yash");
+},5000);
+console.log("print before name")
+resolve(1);
+});
